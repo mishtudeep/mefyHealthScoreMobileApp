@@ -117,7 +117,8 @@ class _WelcomeState extends State<Welcome> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 20,)
             ],
           ),
         )

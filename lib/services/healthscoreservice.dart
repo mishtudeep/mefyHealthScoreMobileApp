@@ -11,17 +11,19 @@ class HealthScoreService {
     'Content-Type': 'application/json'
   };
 
-  Future<APIResponse<Object>> getHealthScore(Parameters item){
-    return http.post(API, headers: headers, body: json.encode(item.toJson()))
-    .then((value) {
-      if(value.statusCode == 200) {
-        return APIResponse<Object>(data: value);
-      } else {
-        return APIResponse<Object>(error: true, errorMessage: "Cannot Get Health Score");
-      }
-      
-    }).catchError((_)=>{
-      APIResponse<Object>(error: true, errorMessage: "Cannot Get Health Score")
-    });
+  Future<APIResponse<dynamic>> getHealthScore (Parameters item) async{
+    final http.Response response = await http.post(
+      API,
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(item),
+    );
+    if(response.statusCode == 200) {
+      return APIResponse<dynamic>(data: response.body);
+    } else {
+      return APIResponse<dynamic>(error: true, errorMessage: "Error in getting Health Score");
+    }
+    
   }
 }

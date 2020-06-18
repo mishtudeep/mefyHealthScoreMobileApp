@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:health_score_app/models/parameters.dart';
 import 'package:health_score_app/views/result.dart';
+import 'package:neumorphic/neumorphic.dart';
 
 class HealthScoreForm extends StatefulWidget {
 
@@ -31,12 +32,9 @@ class _HealthScoreFormState extends State<HealthScoreForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.white
-        ),
+      appBar: NeuAppBar(
         title: Text("Welcome, "+widget.userId.split("@")[0], style: TextStyle(
-          color: Colors.white
+          color: Colors.pink
         ),)
       ),
       body: SingleChildScrollView(
@@ -500,7 +498,7 @@ class _HealthScoreFormState extends State<HealthScoreForm> {
                       );
                       
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => Result())
+                        MaterialPageRoute(builder: (_) => Result(params: params,))
                       );
                     }, 
                     child: Container(
