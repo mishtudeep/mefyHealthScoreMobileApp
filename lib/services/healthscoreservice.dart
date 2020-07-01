@@ -5,7 +5,7 @@ import 'package:health_score_app/models/parameters.dart';
 import 'package:http/http.dart' as http;
 
 class HealthScoreService {
-  static const API = "http://ec2-18-223-185-52.us-east-2.compute.amazonaws.com/api/getScoreApp";
+  static const API = "http://ec2-18-221-157-80.us-east-2.compute.amazonaws.com/api/getScoreApp";
   //static const API="http://localhost/api/getScoreApp";
 
   static const headers = {
